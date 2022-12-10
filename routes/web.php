@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +17,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/user', [UserController::class, 'index'])->name('user');
+Route::post('/user', [UserController::class, 'store'])->name('user.store');
+Route::get('/user/edit/{id}', [UserController::class, 'actionEdit'])->name('user.action.edit');
+Route::put('/user/{id}', [UserController::class, 'edit'])->name('user.edit');
