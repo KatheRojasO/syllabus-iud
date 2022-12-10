@@ -40,14 +40,14 @@ class DatabaseSeeder extends Seeder
 
         DB::table('users')->insert([
             'name' => 'Coordinator 1',
-            'email' => 'coordinator1@syllabus-iud.com.com',
+            'email' => 'coordinator1@syllabus-iud.com',
             'password' => Hash::make('123456789'),
             'role_id' => 2,
         ]);
 
         DB::table('users')->insert([
             'name' => 'Student 1',
-            'email' => 'student1@syllabus-iud.com.com',
+            'email' => 'student1@syllabus-iud.com',
             'password' => Hash::make('123456789'),
             'role_id' => 3,
         ]);
