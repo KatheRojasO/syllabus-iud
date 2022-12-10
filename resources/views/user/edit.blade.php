@@ -58,7 +58,7 @@
 
                                     <div class="col-md-6">
                                         <select name="role_id"
-                                                title="role"
+                                                title=""
                                                 class="form-control{{ $errors->has('role_id') ? ' is-invalid' : '' }}"  >
                                             @foreach($roles as $role)
                                                 <option value="{{$role->id}}">

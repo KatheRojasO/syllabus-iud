@@ -14,7 +14,48 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    @if(!empty($courses))
+                        <div class="row mt-2">
+                            <div class="col-md-12">
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Course Name</th>
+                                        <th scope="col">Number of credits</th>
+                                        <th scope="col">Proffesor</th>
+                                        <th scope="col">Course prerequisite</th>
+                                        <th scope="col">Required self work hours</th>
+                                        <th scope="col">Required class work hours</th>
+                                        @if (Auth::user()->role_id != 3)
+                                            <th scope="col">Actions</th>
+                                        @endif
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($courses as $course)
+                                            <tr>
+                                                <td>{{ $course->name_course }}</td>
+                                                <td>{{ $course->credits }}</td>
+                                                <td>{{ $course->name_proffesor }}</td>
+                                                <td>{{ $course->course_prerequisite }}</td>
+                                                <td>{{ $course->self_work_hours }}</td>
+                                                <td>{{ $course->class_work_hours }}</td>
+                                                @if (Auth::user()->role_id != 3)
+                                                    <td>
+                                                        <a class="btn btn-success btn-sm"
+                                                           href="{{ route('course.action.edit', [$course->id]) }}" 
+                                                        >
+                                                            Edit
+                                                        </a>
+                                                    </td>
+                                                @endif
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                     @endif
                 </div>
             </div>
         </div>
