@@ -51,5 +51,32 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('123456789'),
             'role_id' => 3,
         ]);
+
+        DB::table('courses')->insert([
+            'name_course' => 'Cool Course 2',
+            'credits' => 3,
+            'name_proffesor' => 'Proffesor 1',
+            'course_prerequisite' => 'Cool Course 1',
+            'self_work_hours' => 6,
+            'class_work_hours' => 3,
+        ]);
+
+        DB::table('courses')->insert([
+            'name_course' => 'Cool Course 1',
+            'credits' => 3,
+            'name_proffesor' => 'Proffesor 2',
+            'course_prerequisite' => 'Math',
+            'self_work_hours' => 6,
+            'class_work_hours' => 3,
+        ]);
+
+        DB::table('courses')->insert([
+            'name_course' => 'Math',
+            'credits' => 2,
+            'name_proffesor' => 'Proffesor 1',
+            'course_prerequisite' => 'Pre Math',
+            'self_work_hours' => 4,
+            'class_work_hours' => 2,
+        ]);
     }
 }
