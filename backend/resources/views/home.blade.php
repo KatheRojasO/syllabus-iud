@@ -21,11 +21,11 @@
                                     <thead>
                                     <tr>
                                         <th scope="col">Course Name</th>
-                                        <th scope="col">Number of credits</th>
+                                        <th scope="col">Credits</th>
                                         <th scope="col">Proffesor</th>
                                         <th scope="col">Course prerequisite</th>
-                                        <th scope="col">Required self work hours</th>
-                                        <th scope="col">Required class work hours</th>
+                                        <th scope="col">Self Work</th>
+                                        <th scope="col">Class Work</th>
                                         @if (Auth::user()->role_id != 3)
                                             <th scope="col">Actions</th>
                                         @endif
